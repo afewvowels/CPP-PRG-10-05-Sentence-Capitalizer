@@ -141,7 +141,6 @@ char *capitalizeString(char *chrArr, int *intIndex)
         }
         else if(chrArr[i] == '.' && chrArr[i + 1] == ' ')
         {
-            cout << "ran" << endl;
             if (isalpha(chrArr[i + 2]))
             {
                 chrArr[i + 2] = toupper(chrArr[i + 2]);
