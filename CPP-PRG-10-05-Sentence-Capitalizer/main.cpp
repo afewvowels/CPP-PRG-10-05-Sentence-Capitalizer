@@ -116,8 +116,32 @@ char *capitalizeString(char *chrArr, int *intIndex)
     
     for (int i = 0 ; i < *intIndex ; i++)
     {
-        if(chrArr[i] == '.' && chrArr[i + 1] == ' ')
+        if(chrArr[i] == '.' && chrArr[i + 1] != ' ')
         {
+            if (isalpha(chrArr[i + 1]))
+            {
+                chrArr[i + 1] = toupper(chrArr[i + 1]);
+            }
+            else if(!isalpha(chrArr[i + 1]))
+            {
+                for (int j = i + 1 ; j < *intIndex ; j++)
+                {
+                    if (isalpha(chrArr[j]))
+                    {
+                        chrArr[j] = toupper(chrArr[j]);
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                cout << "ERROR CAPITALIZING C-STRING ELEMENTS\n";
+                exit(1);
+            }
+        }
+        else if(chrArr[i] == '.' && chrArr[i + 1] == ' ')
+        {
+            cout << "ran" << endl;
             if (isalpha(chrArr[i + 2]))
             {
                 chrArr[i + 2] = toupper(chrArr[i + 2]);
